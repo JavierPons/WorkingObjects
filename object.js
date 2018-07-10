@@ -7,7 +7,7 @@ var todosList = {
       console.log('Your array is empty');
     } else {
     
-    console.log('My todos are: ');
+    console.log('My todos: ');
     for(var i = 0; i < this.todos.length; i++){
      
       if(this.todos[i].completed === true){
@@ -37,6 +37,30 @@ var todosList = {
   toggleCompleted: function(position){
     var todo = this.todos[position];
     todo.completed = !todo.completed;
+    this.displayTodos();
+  },
+  toggleAll: function() {
+    var totalTodos = this.todos.length;
+    var completedTodos = 0;
+    
+    for(var i = 0; i < totalTodos; i++) {
+        if(this.todos[i].completed === true) {
+          completedTodos++;
+        }
+      
+    }
+    // Case 1: if everything is true make all false.
+    if (completedTodos === totalTodos) {
+      for (var i = 0; i < totalTodos; i++) {
+      this.todos[i].completed = false;
+     }
+      // Case 2: if everything is false make true.
+    } else {
+       for (var i = 0; i < totalTodos; i++) {
+      this.todos[i].completed = true;
+     }
+     
+    }
     this.displayTodos();
   }
   
