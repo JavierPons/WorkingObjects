@@ -40,6 +40,7 @@ var todosList = {
     this.displayTodos();
   },
   toggleAll: function() {
+    debugger;
     var totalTodos = this.todos.length;
     var completedTodos = 0;
     
@@ -64,4 +65,20 @@ var todosList = {
     this.displayTodos();
   }
   
-}
+};
+// access to display todos button.
+
+var displayTodosButton = document.getElementById('displayTodosButton');
+// displayTodos method when button is clicked.
+
+displayTodosButton.addEventListener('click', function() {
+    todosList.displayTodos();  
+});
+
+var displayToggleAllButton = document.getElementById('displayToggleAllButton');
+console.log(displayToggleAllButton);
+
+displayToggleAllButton.addEventListener('click', function() {
+  todosList.toggleAll();
+});
+
