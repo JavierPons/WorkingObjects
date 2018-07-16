@@ -69,14 +69,32 @@ var handlers = {
   displayTodos: function() {
     todosList.displayTodos();  
   },
-  toggleAll: function() {
-    todosList.toggleAll();
-  },
   addTodo: function() {
    var addTodoTextInput =  document.getElementById('addTodoTextInput');
    todosList.addTodo(addTodoTextInput.value); 
    addTodoTextInput.value = '';
-  }
+  },
+  changeTodo: function() {
+    var changeInputPosition = document.getElementById('changeTodoPositionInput');
+    var changeInputText = document.getElementById('changeTodoTextInput');
+   
+    todosList.changeTodos(changeInputPosition.valueAsNumber, changeInputText.value);
+    changeInputPosition.value = '';
+    changeInputText.value = '';
+  },
+  deleteTodo: function() {
+      var deleteTodoInput = document.getElementById('deleteTodoInput');
+      todosList.deleteTodos(deleteTodoInput.valueAsNumber);
+      deleteTodoInput.value = '';
+  },
+  toggleCompleted: function() {
+    var toggleCompletedInput = document.getElementById('toggleCompletedInput');
+    todosList.toggleCompleted(toggleCompletedInput.valueAsNumber);
+    toggleCompletedInput.value = '';
+  },
+  toggleAll: function() {
+    todosList.toggleAll();
+  },
   
 };
 
